@@ -1,0 +1,56 @@
+
+<!doctype html> <!-- Indica que es un documento HTML -->
+<html lang=es>
+  <head>
+    <meta charset="utf-8" /> 
+    <title>Salma</title> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  </head>
+
+  <body>
+    <h1>Mis iniciales ;)</h1>
+
+
+    <script>
+function setup() {
+  createCanvas(800, 800);
+  background(124,221,152);
+  strokeWeight(22);
+
+  // Cada línea tendrá un color aleatorio
+  stroke(random(255), random(255), random(255));
+  line(300, 100, 500, 100);
+  stroke(random(255), random(255), random(255));
+  line(300, 100, 300, 200);
+  stroke(random(255), random(255), random(255));
+  line(300, 200, 500, 200);
+  stroke(random(255), random(255), random(255));
+  line(500, 200, 500, 300);
+  stroke(random(255), random(255), random(255));
+  line(500, 300, 300, 300);
+  
+  stroke(random(255), random(255), random(255));
+  line(200, 400, 400, 400);
+  stroke(random(255), random(255), random(255));
+  line(400, 400, 400, 500);
+  stroke(random(255), random(255), random(255));
+  line(200, 400, 200, 600);
+  stroke(random(255), random(255), random(255));
+  line(200, 500, 400, 600);
+  stroke(random(255), random(255), random(255));
+  line(200, 500, 400, 500);
+  
+  stroke(random(255), random(255), random(255));
+  line(500, 400, 700, 400);
+  stroke(random(255), random(255), random(255));
+  line(500, 400, 500, 500);
+  stroke(random(255), random(255), random(255));
+  line(500, 500, 700, 500);
+  stroke(random(255), random(255), random(255));
+  line(700, 500, 700, 600);
+  stroke(random(255), random(255), random(255));
+  line(700, 600, 500, 600);
+}
+    </script>
+  </body>
+</html>
