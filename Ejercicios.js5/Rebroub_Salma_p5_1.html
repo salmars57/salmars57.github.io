@@ -1,0 +1,39 @@
+<!doctype html> <!-- Indica que es un documento HTML -->
+<html lang=es>
+  <head> 
+    <meta charset="utf-8" /> 
+    <title>Apuntes p5.js</title> 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  </head>
+
+  <body>
+    <script>
+  function setup() {
+  createCanvas(400, 400); // Crea un lienzo de 400x400 píxeles
+  background(255);        // Fondo blanco
+
+  // Lado superior: 
+  stroke(173, 86, 69);      
+  strokeWeight(47);        // Grosor de línea 3
+  line(100, 100, 300, 100);
+
+  // Lado derecho
+  stroke(69, 138, 173); 
+  strokeWeight(22);        // Grosor de línea 6
+  line(300, 100, 300, 300);
+
+  // Lado inferior: 
+  stroke(0, 0, 255);      
+  strokeWeight(6);        // Grosor de línea 2
+  line(300, 300, 100, 300);
+
+  // Lado izquierdo: 
+  stroke(188, 207, 21);           
+  strokeWeight(34);        // Grosor de línea 4
+  line(100, 300, 100, 100);
+}
+    </script>
+  </body>
+</html>
