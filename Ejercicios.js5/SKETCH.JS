@@ -1,9 +1,24 @@
-function setup() {
-  createCanvas(400, 400);
- }
+ function setup() {
+  createCanvas(400, 400); // Crea un lienzo de 400x400 píxeles
+  background(255);        // Fondo blanco
 
-function draw () {
-  background(220);       // gris claro
-  line(50, 50, 350, 50); // línea horizontal
-  ellipse(200, 200, 100, 100); // círculo en el centro
+  // Lado superior: 
+  stroke(173, 86, 69);      
+  strokeWeight(47);        // Grosor de línea 3
+  line(100, 100, 300, 100);
+
+  // Lado derecho
+  stroke(69, 138, 173); 
+  strokeWeight(22);        // Grosor de línea 6
+  line(300, 100, 300, 300);
+
+  // Lado inferior: 
+  stroke(0, 0, 255);      
+  strokeWeight(6);        // Grosor de línea 2
+  line(300, 300, 100, 300);
+
+  // Lado izquierdo: 
+  stroke(188, 207, 21);           
+  strokeWeight(34);        // Grosor de línea 4
+  line(100, 300, 100, 100);
 }
