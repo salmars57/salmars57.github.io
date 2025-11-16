@@ -1,0 +1,130 @@
+<!doctype html> 
+<html lang=es>
+    
+    <head> 
+    <meta charset="utf-8" /> 
+    <title>Salma</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script> 
+    </head>
+    
+  <body>
+    
+    <script>
+//Variables globales
+  let xs, ys, vs, ds, rs
+  let xl, yl, vl, dl, rl
+  let EsDeDia=true
+  
+function setup() {
+  
+  createCanvas(1000, 1000);
+  background(179, 255, 255);
+  
+    ds= min(width, height) * 0.10 //diametro sol
+    rs= ds/2 
+    xs= -rs; //posicion inicial sol
+    ys= height * 0.10 // altura sol
+    vs= width/400 // velocidad sol
+    
+    dl= min(width, height) * 0.10 // diametro luna
+    rl= dl/2; //radio sol 
+    xl= -rs-width; // posicion inicial luna
+    yl= height * 0.10 // altura luna
+    vl= width/600 // velocidad luna
+}
+
+function draw () {
+  
+ // CIELO: azul de día, negro de noche
+  noStroke();
+  if (EsDeDia) {
+    fill(179, 255, 255);
+  } else {
+    fill(0,0,0);
+  }
+  rect(0,0,width,700);
+  
+strokeWeight(7);
+  
+  fill(71, 209, 71) //Hierba
+  rect(0,700,1000,300)
+  
+  fill(102, 153, 255);  //Pared casa     
+  rect(200, 400, 600, 400);
+  
+  stroke(102, 51, 0)  //Puerta
+  fill(166, 78, 1);          
+  rect(450, 650, 100, 150);
+  
+  stroke(0,0,0)
+  fill(0,0,0) //Pomo puerta
+  circle(525,720,15)
+  
+  fill(200, 219, 204) //Ventana izquierda
+  rect(300,500,100,100)
+  
+  fill(200, 219, 204) //Ventana derecha
+  rect(600,500,100,100)
+  
+  fill(102, 51, 0)  //Tejado
+  triangle(200,400,500,200,800,400)
+  
+  stroke(255) //Nube
+  fill(255)
+  ellipse(850,260,250,100)
+  
+  fill(255)
+  ellipse(900,230,140,90)
+  
+  fill(255)
+  circle(955,245,50)
+  
+  stroke(0) //Rueda izquierda
+  fill(0)
+  arc(660,850,70,70,0,PI)
+  
+  fill(0) //Rueda derecha
+  arc(835,850,70,70,0,PI)
+  
+  stroke(255,0,0) //Cuerpo coche
+  fill(255,0,0)
+  rect(600,740,290,110)
+
+  fill(255,0,0) //Techo coche
+  ellipse(795,735,190,130)
+  
+  fill(153, 255, 204)
+  arc(795,735,170,110,PI,0)
+  
+  stroke(255,255,0)
+  fill(255,255,0)
+  ellipse(600,800,30,60)
+  
+  if (EsDeDia) {
+    stroke(255, 153, 0) //Sol
+  fill(255, 153, 0) 
+  circle(xs,ys,ds)
+  xs= xs + vs;
+
+    // si el sol sale de la pantalla → empieza la luna
+    if (xs > width + rs) {
+      EsDeDia = false;   // ahora es de noche
+      xl = -rl;          // luna entra desde la izquierda
+      }
+    } 
+    else {
+    stroke(200); //Luna
+  fill(230);
+  circle(xl, yl, dl);
+  xl = xl + vl;
+
+    // si la luna sale → vuelve el sol
+    if (xl > width + rl) {
+      EsDeDia = true;   // ahora es de día
+      xs = -rs;         // sol entra desde la izquierda
+      }
+    }
+}
+    </script>
+  </body>
+</html>
