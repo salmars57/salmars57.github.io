@@ -13,7 +13,7 @@
 //Variables globales
   let xs, ys, vs, ds, rs
   let xl, yl, vl, dl, rl
-  let EsDeDia=true
+  
   
 function setup() {
   
@@ -30,24 +30,18 @@ function setup() {
     rl= dl/2; //radio sol 
     xl= -rs-width; // posicion inicial luna
     yl= height * 0.10 // altura luna
-    vl= width/600 // velocidad luna
+    vl= width/400 // velocidad luna
 }
 
 function draw () {
   
  // CIELO: azul de día, negro de noche
-  noStroke();
-  if (EsDeDia) {
-    fill(179, 255, 255);
-  } else {
-    fill(0,0,0);
-  }
-  rect(0,0,width,700);
+   background(179, 255, 255);       // cielo
+    noStroke();
+    fill(71, 209, 71);             // suelo
+    rect(0, height * 0.8, width, height * 0.2);
   
 strokeWeight(7);
-  
-  fill(71, 209, 71) //Hierba
-  rect(0,700,1000,300)
   
   fill(102, 153, 255);  //Pared casa     
   rect(200, 400, 600, 400);
@@ -100,30 +94,16 @@ strokeWeight(7);
   fill(255,255,0)
   ellipse(600,800,30,60)
   
-  if (EsDeDia) {
-    stroke(255, 153, 0) //Sol
+  stroke(255, 153, 0) //Sol
   fill(255, 153, 0) 
   circle(xs,ys,ds)
   xs= xs + vs;
-
-    // si el sol sale de la pantalla → empieza la luna
-    if (xs > width + rs) {
-      EsDeDia = false;   // ahora es de noche
-      xl = -rl;          // luna entra desde la izquierda
-      }
-    } 
-    else {
-    stroke(200); //Luna
+   
+  stroke(200); //Luna
   fill(230);
   circle(xl, yl, dl);
   xl = xl + vl;
 
-    // si la luna sale → vuelve el sol
-    if (xl > width + rl) {
-      EsDeDia = true;   // ahora es de día
-      xs = -rs;         // sol entra desde la izquierda
-      }
-    }
 }
     </script>
   </body>
