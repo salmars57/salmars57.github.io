@@ -30,7 +30,7 @@ function setup() {
     rl= dl/2; //radio sol 
     xl= -rs-width; // posicion inicial luna
     yl= height * 0.10 // altura luna
-    vl= width/400 // velocidad luna
+    vl= width/430 // velocidad luna
 }
 
 function draw () {
@@ -104,6 +104,7 @@ strokeWeight(7);
   circle(xl, yl, dl);
   xl = xl + vl;
 
+ stroke(0)
  fill(255);//Rotulitos informativos (útiles para depurar y aprender) ---
  textSize(16);
  textAlign(LEFT, TOP);
@@ -112,4 +113,5 @@ strokeWeight(7);
     </script>
   </body>
 </html>
+
 
