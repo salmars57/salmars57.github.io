@@ -1,8 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Title</title>
+<!doctype html> 
+<html lang=es>
+    
+    <head> 
+    <meta charset="utf-8" /> 
+    <title>Salma</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script> 
     </head>
-    <body></body>
+    
+  <body>
+    
+    <script>
+//Variables globales
+
+  //Variables Sol
+    let xs, ys, vs, ds, rs ;
+    let xcs ; //x del rectángulo "cielo del sol"
+    let adelanto_s;     // cuánto va por delante el cielo del sol
+        
+  //Variables Luna
+    let xl, yl, vl, dl, rl ;
+    let xcl  ;//x del rectangulo "cielo del luna"
+    let adelanto_l;     // cuánto va por delante el cielo de la luna
+  
+function setup() {
+  
+  createCanvas(1000, 1000);
+  background(179, 255, 255);
+  
+    ds= min(width, height) * 0.10; //diametro sol
+    rs= ds/2; 
+    xs= -rs; //posicion inicial sol
+    ys= height * 0.10; // altura sol
+    vs= width/400; // velocidad sol
+    adelanto_s= width *0.10;
+    xcs= xs + adelanto_s;
+    
+    dl= min(width, height) * 0.10; // diametro luna
+    rl= dl/2; //radio sol 
+    xl= -rl-width; // posicion inicial luna
+    yl= height * 0.10; // altura luna
+    vl= width/400; // velocidad luna
+    adelanto_l= width * 0.10;
+    xcl= xl - width+ adelanto_l;
+  
+}
+
+function draw () {
+  
+ 
+  
+strokeWeight(7);
+  
+   background(179, 255, 255);       // cielo
+  
+    noStroke();
+    fill(71, 209, 71);             // suelo
+    rect(0, height * 0.8, width, height * 0.2);
+  
+  // Cielo de la luna (gris)
+    fill(200);
+    rect(xcl, 0, width, height * 0.8);
+  
+  
+  fill(102, 153, 255);  //Pared casa     
+  rect(200, 400, 600, 400);
+  
+  stroke(102, 51, 0)  //Puerta
+  fill(166, 78, 1);          
+  rect(450, 650, 100, 150);
+  
+  stroke(0,0,0)
+  fill(0,0,0) //Pomo puerta
+  circle(525,720,15)
+  
+  fill(200, 219, 204) //Ventana izquierda
+  rect(300,500,100,100)
+  
+  fill(200, 219, 204) //Ventana derecha
+  rect(600,500,100,100)
+  
+  fill(102, 51, 0)  //Tejado
+  triangle(200,400,500,200,800,400)
+  
+  stroke(255) //Nube
+  fill(255)
+  ellipse(850,260,250,100)
+  
+  fill(255)
+  ellipse(900,230,140,90)
+  
+  fill(255)
+  circle(955,245,50)
+  
+  stroke(0) //Rueda izquierda
+  fill(0)
+  arc(660,850,70,70,0,PI)
+  
+  fill(0) //Rueda derecha
+  arc(835,850,70,70,0,PI)
+  
+  stroke(255,0,0) //Cuerpo coche
+  fill(255,0,0)
+  rect(600,740,290,110)
+
+  fill(255,0,0) //Techo coche
+  ellipse(795,735,190,130)
+  
+  fill(153, 255, 204)
+  arc(795,735,170,110,PI,0)
+  
+  stroke(255,255,0)
+  fill(255,255,0)
+  ellipse(600,800,30,60)
+  
+ // Sol
+    noStroke()
+    fill(255, 153, 0);
+    circle(xs, ys, ds);
+
+    // Luna
+    fill(230);
+    circle(xl, yl, dl);
+
+   // Movimiento de astros y de sus cielos (cada uno con su estado)
+    xs  = xs  + vs;
+    xl  = xl  + vl;
+    xcl = xcl + vl;   // el cielo de la luna se desplaza con la luna
+
+ fill(255);//Rotulitos informativos (útiles para depurar y aprender) ---
+ textSize(16);
+ textAlign(LEFT, TOP);
+ text("A1 — Variables (estado + movimiento simple)", 10, 10);
+}
+    </script>
+  </body>
 </html>
