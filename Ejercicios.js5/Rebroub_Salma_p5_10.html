@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang=es>
+    
+    <head> 
+    <meta charset="utf-8" /> 
+    <title>Salma</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script> 
+    </head>
+    
+    <body>
+        <script>
+            
+        let xS, yS, dS, rS, vS;
+            
+        function setup() {
+            createCanvas(900, 500);
+            dS = 0.18 * width;        
+            rS = dS / 2;
+            yS = 0.35 * height;       
+            xS = -rS;                 
+            vS = width / 400;         
+            
+        }
+            
+        function draw() {
+        //Fondo decidido por la posición del Sol    
+        if (xS <= width + rS) {
+        background(135, 206, 235);   // Día mientras el borde izquierdo del Sol no ha salido por la derecha
+        } else {
+        background(0);               // Noche cuando el Sol ya salió completamente por la derecha
+        }
+
+        //Suelo
+        noStroke();
+        fill(20, 120, 40);
+        rect(0, 0.8*height, width, 0.2*height);
+
+        //Sol (si está fuera, no se verá)
+        noStroke();
+        fill(255, 210, 0);
+        circle(xS, yS, dS);
+
+        //Movimiento constante
+        xS = xS + vS;
+
+        //Reinicio por posición
+        if (xS >= 2*width - rS) {
+        xS = -rS;   // reentrar por la izquierda
+        }
+            
+        }
+
+        </script>
+    </body>
+    
+</html>
