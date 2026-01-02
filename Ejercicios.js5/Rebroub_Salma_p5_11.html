@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=es>
+    
+    <head> 
+    <meta charset="utf-8" /> 
+    <title>Salma</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script> 
+    </head>
+    
+    <body>
+        <script>
+            
+        let xS, yS, dS, rS, vS;   
+        let xL, yL, dL, rL, vL;   
+        
+        function setup() {
+            createCanvas(600, 800) 
+            
+            dS = min(width, height) * 0.20;
+            rS = dS / 2; 
+            xS = -rS;
+            yS = height / 4;
+            vS = width / 400; 
+            
+            dL = dS * 0.5; 
+            rL = dL / 2;
+            xL = -width - rL; 
+            yL = height / 3;
+            vL = vS;
+            
+        }
+            
+        function draw() {
+            createCanvas(600,800) 
+            if (xS <= width + rS) { // Día mientras el Sol no ha salido por la derecha 
+            background(0, 0, 255); 
+            } else { // Noche cuando el Sol ya salió 
+            background(10); 
+            }
+            
+            //Suelo
+            noStroke(); 
+            fill(20, 120, 40); 
+            rect(0, 0.8*height, width, 0.2*height);
+            
+            //Sol
+            noStroke(); 
+            fill(245, 234, 10); 
+            circle(xS, yS, dS);
+            
+            //Luna
+            noStroke(); 
+            fill(200); 
+            circle(xL, yL, dL);
+            
+            //Movimiento Sol y Luna
+            xS = xS + vS; 
+            xL = xL + vL;
+            
+            //Reinicio por posicion del Sol y la Luna
+            if (xS > 2*width + rS) { xS = -rS; // Sol reentra por la izquierda 
+            xL = -width - rL; // la Luna vuelve a esperar fuera a la izquierda 
+            }
+            
+            //Depuración: muestra variables en pantalla
+            textSize(14);
+            stroke(255, 0, 0);
+            fill(255);
+            text(xS, 10, 10);
+            text(xL, 10, 28);
+            
+            
+        }
+
+        </script>
+    </body>
+    
+</html>
