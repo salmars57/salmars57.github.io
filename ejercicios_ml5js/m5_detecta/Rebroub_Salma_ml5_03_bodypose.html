@@ -160,6 +160,40 @@
       poses = results;
     }
   </script>
+  <div class="fallos">
+    <h2>Fallas detectadas en el sistema BodyPose</h2>
+
+    <h3>Pérdida de puntos con mala iluminación o contraluz</h3>
+    <p>
+      Cuando la luz es insuficiente o hay una ventana detrás de la persona, algunos puntos del cuerpo como muñecas o tobillos desaparecen o aparecen mal colocados. 
+      Esto sucede porque el modelo necesita buen contraste entre el cuerpo y el fondo para detectar correctamente las partes.
+    </p>
+
+    <h3>Inestabilidad o “saltos” (jitter) con movimientos rápidos</h3>
+    <p>
+      Al mover brazos o piernas de forma brusca, los puntos cambian de posición de manera repentina y el esqueleto parece deformarse por un instante. 
+      Esto ocurre porque el sistema analiza imagen por imagen y no siempre puede seguir movimientos muy rápidos con precisión.
+    </p>
+
+    <h3>Errores por distancia incorrecta a la cámara</h3>
+    <p>
+      Si la persona está demasiado cerca y no se ve el cuerpo completo, algunos puntos no se detectan. 
+      Si está demasiado lejos, los puntos se vuelven imprecisos. El modelo funciona mejor cuando el cuerpo ocupa un tamaño adecuado dentro de la imagen.
+    </p>
+
+    <h3>Fallos cuando partes del cuerpo están fuera de plano</h3>
+    <p>
+      Si no se ven las piernas, brazos u otras partes porque quedan fuera del encuadre, el sistema puede perder esos puntos o colocarlos en posiciones incorrectas. 
+      Esto pasa porque el modelo solo puede analizar lo que aparece en la cámara.
+    </p>
+
+    <h3>Problemas por oclusiones</h3>
+    <p>
+      Cuando hay objetos que tapan partes del cuerpo, como mochilas, mesas o manos en los bolsillos, el modelo se confunde y coloca mal los puntos o los elimina. 
+      Esto ocurre porque no puede ver claramente las articulaciones.
+    </p>
+
+  </div>
 </body>
 </html>
 
