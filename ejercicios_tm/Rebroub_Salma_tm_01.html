@@ -44,11 +44,28 @@
     <p class="hint">
      A continuación detallo los errores detectados en el proceso
     </p>
-    <ol>
-      <li>Fallo 1: …</li>
-      <li>Fallo 2: …</li>
-      <li>Fallo 3: …</li>
-    </ol>
+   <ol>
+  <li>
+    <b>Fallo 1:</b><br>
+    <b>Qué ocurrió:</b> El modelo predijo <i>neutral</i> cuando en realidad estaba mostrando el <i>objeto</i>.<br>
+    <b>Cuándo:</b> Ocurrió cuando el objeto estaba muy lejos de la cámara.<br>
+    <b>Por qué creo que pasó:</b> Probablemente el modelo no detectó bien el objeto porque era demasiado pequeño en la imagen y se parecía más a las imágenes de la clase neutral.
+  </li>
+
+  <li>
+    <b>Fallo 2:</b><br>
+    <b>Qué ocurrió:</b> El modelo predijo <i>objeto</i> cuando en realidad no había ningún objeto.<br>
+    <b>Cuándo:</b> Ocurrió cuando moví las manos rápidamente delante de la cámara.<br>
+    <b>Por qué creo que pasó:</b> El modelo pudo confundir el movimiento o la forma de la mano con el objeto, ya que durante el entrenamiento aparecía mi mano sujetándolo.
+  </li>
+
+  <li>
+    <b>Fallo 3:</b><br>
+    <b>Qué ocurrió:</b> El modelo mostró probabilidades muy parecidas entre <i>neutral</i> y <i>objeto</i>, sin decidir claramente.<br>
+    <b>Cuándo:</b> Ocurrió cuando el objeto estaba parcialmente tapado o cuando cambió la iluminación del lugar.<br>
+    <b>Por qué creo que pasó:</b> El modelo se entrenó con ejemplos donde el objeto se veía completo y con una iluminación similar, por lo que al cambiar las condiciones tuvo más dificultad para reconocerlo.
+  </li>
+</ol>
   </div>
 
 
